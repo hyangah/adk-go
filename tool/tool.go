@@ -38,6 +38,10 @@ var ErrConfirmationRequired = errors.New("requires confirmation, please approve 
 // ErrConfirmationRejected indicated that the tool call confirmation rejected.
 var ErrConfirmationRejected = errors.New("call is rejected")
 
+// EmptyArgs is an empty struct that can be used as an argument for tools
+// that don't require any input parameters.
+type EmptyArgs struct{}
+
 // Tool defines the interface for a callable tool.
 type Tool interface {
 	// Name returns the name of the tool.

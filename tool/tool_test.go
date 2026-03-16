@@ -160,9 +160,9 @@ func (tts *testToolset) Tools(agent.ReadonlyContext) ([]tool.Tool, error) {
 
 func TestWithConfirmation(t *testing.T) {
 	toolRan := false
-	noOpTool, err := functiontool.New(functiontool.Config{Name: "noOpTool"}, func(ctx tool.Context, input struct{}) (struct{}, error) {
+	noOpTool, err := functiontool.New(functiontool.Config{Name: "noOpTool"}, func(ctx tool.Context, input tool.EmptyArgs) (tool.EmptyArgs, error) {
 		toolRan = true
-		return struct{}{}, nil
+		return tool.EmptyArgs{}, nil
 	})
 	if err != nil {
 		t.Fatalf("functiontool.New() failed: %v", err)
